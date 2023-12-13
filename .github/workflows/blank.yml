@@ -29,8 +29,8 @@ jobs:
         id: init
         run: terraform init
         env:
-            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_STIERLI_DEV }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_STIERLI_DEV }}
             AWS_DEFAULT_REGION: ${{ secrets.REGION }}
       
       - name: Terraform Validate
@@ -41,8 +41,8 @@ jobs:
         id: apply
         run: terraform apply -auto-approve 
         env:
-            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_STIERLI_DEV }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_STIERLI_DEV }}
             AWS_DEFAULT_REGION: ${{ secrets.REGION }}
   
   terraform_destroy:
@@ -60,8 +60,8 @@ jobs:
         id: init
         run: terraform init
         env:
-            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_STIERLI_DEV }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_STIERLI_DEV }}
             AWS_DEFAULT_REGION: ${{ secrets.REGION }}
       
       - name: Terraform Destroy
@@ -69,6 +69,6 @@ jobs:
         working-directory: ${{ github.event.inputs.resource }}
         run: terraform destroy -auto-approve 
         env:
-            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_STIERLI_DEV }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_STIERLI_DEV }}
             AWS_DEFAULT_REGION: ${{ secrets.REGION }}
