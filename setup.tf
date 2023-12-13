@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "bucket" {
-    bucket = "stierli-grupo4_A"
+    bucket = "stierli-grupo4-a"
     lifecycle {
       prevent_destroy = true
     }
