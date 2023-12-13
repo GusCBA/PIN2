@@ -27,6 +27,9 @@ resource "aws_s3_bucket" "bucket" {
 
 
 resource "aws_dynamodb_table" "terraform-lock" {
+    lifecycle {
+      prevent_destroy = true
+    }
     name           = "terraformstatelock"
     read_capacity  = 5
     write_capacity = 5
