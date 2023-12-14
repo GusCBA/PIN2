@@ -65,7 +65,7 @@ jobs:
           aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID_STIERLI_DEV }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY_STIERLI_DEV }}
           aws_bucket: stierli-grupo4
-          source_dir: ./bucket/terraform.tfstate
+          source_dir: ./bucket
           
       - name: Terraform Init
         working-directory: ./
