@@ -41,11 +41,6 @@ jobs:
         id: validate2
         run: terraform validate -no-color
 
-      - name: List files
-        working-directory: ./bucket
-        id: list
-        run: ls -ltr        
-
       - name: Terraform Apply
         working-directory: ./bucket
         id: apply2
@@ -55,7 +50,10 @@ jobs:
             AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_STIERLI_DEV }}
             AWS_DEFAULT_REGION: ${{ secrets.REGION }}
 
-
+      - name: Git 
+        working-directory: ./bucket
+        id: git
+        run: git add .;git commit -m "tfstate";git push
 
       - name: Terraform Init
         working-directory: ./
