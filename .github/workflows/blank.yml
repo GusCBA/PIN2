@@ -53,7 +53,8 @@ jobs:
       - name: Git 
         working-directory: ./bucket
         id: git
-        run: git add .;git commit -m "tfstate";git push
+        run: ls -ltr
+          #git add .;git commit -m "tfstate";git push
 
       - name: Terraform Init
         working-directory: ./
