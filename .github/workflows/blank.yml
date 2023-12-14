@@ -56,6 +56,12 @@ jobs:
         run: ls -ltr
           #git add .;git commit -m "tfstate";git push
 
+      - name: Upload to bucket 
+        working-directory: ./bucket
+        id: upl
+        run: aws s3 mv terraform.tfstate s3://stierli-grupo4/
+
+          
       - name: Terraform Init
         working-directory: ./
         id: init2
