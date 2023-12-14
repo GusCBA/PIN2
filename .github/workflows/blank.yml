@@ -56,15 +56,16 @@ jobs:
         run: ls -ltr
           #git add .;git commit -m "tfstate";git push
 
-      - name: Upload to bucket 
-        working-directory: ./bucket
-        id: upl
-        run: aws s3 mv terraform.tfstate s3://stierli-grupo4/
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_STIERLI_DEV }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_STIERLI_DEV }}
-          AWS_DEFAULT_REGION: ${{ secrets.REGION }}
 
+
+      - name: Upload to S3
+        uses: shallwefootball/s3-upload-action@master
+        id: S3
+        with:
+          aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID_STIERLI_DEV }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY_STIERLI_DEV }}
+          aws_bucket: stierli-grupo4
+          source_dir: ./bucket/terraform.tfstate
           
       - name: Terraform Init
         working-directory: ./
